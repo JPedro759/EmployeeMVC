@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employees Listing</title>
+    <style>
+      * {
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: rgb(231, 231, 231);
+      }
+
+      main :is(.container-table, h1, hr) {
+        margin-top: 3rem;
+      }
+
+      .container-table {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 50%;
+        box-shadow: 10px 10px 7px 4px rgba(139, 139, 139, 0.562);
+      }
+
+      hr {
+        border: 2px solid #525252;
+        border-radius: 5px;
+        width: 70%;
+      }
+
+      th,
+      td {
+        border: 1px solid #dbdbdb;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 style="text-align: center">Employees Listing</h1>
+      <hr />
+
+      <div class="container-table">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Office</th>
+              <th>Department</th>
+              <th>Salary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="employee:${employees}">
+              <td th:text="${employee._id}"></td>
+              <td th:text="${employee._name}"></td>
+              <td th:text="${employee._office}"></td>
+              <td th:text="${employee._department}"></td>
+              <td th:text="${employee._salary}"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>
